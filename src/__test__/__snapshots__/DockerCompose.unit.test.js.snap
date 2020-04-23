@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`docker compose test create config yml with multi apps 1`] = `
+"version: \\"3.6\\"
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - a
+      - b
+    networks:
+      llnet:
+        aliases:
+          - a.meister1.com
+          - b.meister1.com
+  a:
+    image: a:latest
+    ports:
+      - 8000:8000
+    networks:
+      llnet:
+        ipv4_address: 10.5.0.10
+    volumes:
+      - maven-data:/.m2
+  b:
+    image: b:latest
+    ports:
+      - 8001:8001
+    networks:
+      llnet:
+        ipv4_address: 10.5.0.11
+    volumes:
+      - maven-data:/.m2
+    env_file:
+      - b/.env.tmp
+networks:
+  llnet:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 10.5.0.0/24
+volumes:
+  maven-data:
+    {}
+"
+`;
+
+exports[`docker compose test create config yml with one app 1`] = `
+"version: \\"3.6\\"
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - a
+    networks:
+      llnet:
+        aliases:
+          - a.meister1.com
+  a:
+    image: a:latest
+    ports:
+      - 8000:8000
+    networks:
+      llnet:
+        ipv4_address: 10.5.0.10
+    volumes:
+      - maven-data:/.m2
+networks:
+  llnet:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 10.5.0.0/24
+volumes:
+  maven-data:
+    {}
+"
+`;

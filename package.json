@@ -1,0 +1,52 @@
+{
+  "name": "lde",
+  "version": "1.1.2",
+  "description": "Create and start a cluster of docker cluster with SSL support in few minutes.",
+  "bin": {
+    "lde": "./dist/index.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "rm -rf dist && jest && eslint src && babel src -d dist --copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/meister-1/lde.git"
+  },
+  "keywords": [
+    "docker",
+    "local",
+    "env",
+    "development"
+  ],
+  "author": "Karol Wyszynski <npmjs@meister1.de>",
+  "license": "MIT",
+  "homepage": "https://www.meister1.de",
+  "dependencies": {
+    "exec-sh": "^0.3.2",
+    "fs-sync": "^1.0.6",
+    "log-symbols": "^2.2.0",
+    "simple-git": "^1.106.0",
+    "yaml": "^1.0.1",
+    "uuid-by-string": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "7.0.0-bridge.0",
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-eslint": "^10.0.1",
+    "babel-polyfill": "^6.26.0",
+    "eslint": "^5.9.0",
+    "eslint-plugin-babel": "^5.2.1",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^23.6.0"
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  },
+  "bugs": {
+    "url": "https://github.com/meister-1/lde/issues"
+  },
+  "main": "index.js"
+}

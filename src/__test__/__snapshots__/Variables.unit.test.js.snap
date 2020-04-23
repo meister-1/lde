@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`variables test create env vars object list 1`] = `
+Array [
+  Object {
+    "key": "FOO",
+    "value": "123",
+  },
+  Object {
+    "key": "ABC",
+    "value": "456",
+  },
+  Object {
+    "key": "PORT",
+    "value": "$PORT",
+  },
+]
+`;
+
+exports[`variables test replace vars 1`] = `
+Array [
+  Object {
+    "key": "FOO",
+    "value": "123",
+  },
+  Object {
+    "key": "ABC",
+    "value": "456",
+  },
+  Object {
+    "key": "PORT",
+    "value": "8080",
+  },
+]
+`;

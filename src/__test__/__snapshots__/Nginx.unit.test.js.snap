@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`nginx test create server config with multi apps 1`] = `
+"server {
+            listen       80;
+            
+            location / {
+                return 301 https://$host$request_uri;
+            }
+        }
+server {
+            listen      443 ssl;
+            ssl_certificate     /etc/nginx/wildcard-meister1.com.pem;
+            ssl_certificate_key /etc/nginx/wildcard-meister1-key.com.pem;
+            server_name  a.meister1.com;
+        
+            location / {
+                proxy_pass \\"http://10.5.0.10:8000\\";
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection \\"upgrade\\";
+            }
+        }
+server {
+            listen      80
+            server_name  b.meister1.com;
+        
+            location / {
+                proxy_pass \\"http://10.5.0.11:8001\\";
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection \\"upgrade\\";
+            }
+        }
+"
+`;
+
+exports[`nginx test create server config with one app 1`] = `
+"server {
+            listen       80;
+            
+            location / {
+                return 301 https://$host$request_uri;
+            }
+        }
+server {
+            listen      80
+            server_name  a.meister1.com;
+        
+            location / {
+                proxy_pass \\"http://10.5.0.10:8000\\";
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection \\"upgrade\\";
+            }
+        }
+"
+`;

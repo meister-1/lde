@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`app config test create config with custom values 1`] = `
+Array [
+  AppConfig {
+    "attributes": null,
+    "certs": undefined,
+    "domain": "www.lokalleads.de",
+    "ip": "10.5.0.11",
+    "name": "app-a",
+    "port": 8000,
+    "variables": "
+FOO=123
+ABC=456
+",
+    "version": "738b4fbc-03a3-5b5e-9db9-11204e11f883_latest",
+    "volumes": "/foo:/bar",
+  },
+]
+`;
+
+exports[`app config test create config with default values 1`] = `
+Array [
+  AppConfig {
+    "attributes": null,
+    "certs": undefined,
+    "domain": "app-a.app.com",
+    "ip": "10.5.0.11",
+    "name": "app-a",
+    "port": "8000",
+    "variables": "
+FOO=123
+ABC=456
+",
+    "version": "738b4fbc-03a3-5b5e-9db9-11204e11f883_latest",
+    "volumes": null,
+  },
+]
+`;
